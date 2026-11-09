@@ -1,13 +1,10 @@
 ridge <- function(X, y, lambda = 1) {
-
   beta <- solve(
     t(X) %*% X + lambda * diag(ncol(X)),
     t(X) %*% y
   )
-
   return(beta)
 }
-
 
 #' Fit a Ridge regression model
 #'
@@ -32,8 +29,6 @@ ridge <- function(X, y, lambda = 1) {
 #'
 #' @export
 ridge_fit <- function(X, y, lambda = 1) {
-
   beta <- ridge(X, y, lambda)
-
   return(beta)
 }
