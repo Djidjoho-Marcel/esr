@@ -1,21 +1,25 @@
 Package: esr
 Title: Ridge Regression Tools
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: Tools for fitting Ridge regression models in R.
+    person("Djidjoho Marcel", "Hounkonnou", , "hounkonnoudjidjohomarcel@gmail.com", role = c("aut", "cre"))
+Description: Tools for fitting Ridge regression models in R with cross-validation accelerated in C++.
 License: MIT + file LICENSE
-Config/roxygen2/version: 8.1.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/Djidjoho-Marcel/esr
 BugReports: https://github.com/Djidjoho-Marcel/esr/issues
 Imports: 
-    ggplot2,
-    Rcpp
+    graphics,
+    Rcpp,
 LinkingTo: 
     Rcpp,
     RcppArmadillo
+Config/roxygen2/version: 8.1.0
+VignetteBuilder: knitr
+VignetteBuilder: knitr

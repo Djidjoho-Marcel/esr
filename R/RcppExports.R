@@ -7,7 +7,6 @@
 #' @param lambdas Vecteur des lambdas a tester.
 #' @param k Nombre de plis.
 #' @return Un vecteur contenant le MSE moyen pour chaque lambda.
-#' @export
 cv_ridge_cpp <- function(X, y, lambdas, k) {
     .Call(`_esr_cv_ridge_cpp`, X, y, lambdas, k)
 }

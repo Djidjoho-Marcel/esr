@@ -1,0 +1,19 @@
+---
+title: "Guide d'utilisation de esr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Guide d'utilisation de esr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+library(esr)
+set.seed(42)
+X <- matrix(rnorm(200), 40, 5)
+y <- X %*% c(2, -1, 0.5, 0, 0) + rnorm(40)
+mod <- ridge(X, y)
+print(mod)
+plot(mod)
+head(predict(mod, X))
+```

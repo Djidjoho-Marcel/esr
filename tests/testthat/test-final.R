@@ -1,0 +1,21 @@
+test_that('ridge, print, plot et predict fonctionnent', {
+  set.seed(123)
+  X <- matrix(rnorm(100), 20, 5)
+  y <- X %*% c(1, -2, 0.5, 0, 0) + rnorm(20)
+  mod <- ridge(X, y, lambdas = c(0.1, 1, 10), K = 4)
+  expect_s3_class(mod, 'ridge')
+  expect_length(mod$coefficients, 5)
+  expect_output(print(mod), 'Modele Ridge')
+  expect_length(predict(mod, X[1:5, ]), 5)
+  expect_silent(plot(mod))
+  expect_error(plot(ridge(X, y, lambdas = 1)))
+  expect_error(ridge(X, y, lambdas = -5))
+})
+
+test_that('CV en C++ et en R donnent le meme resultat', {
+  set.seed(42)
+  X <- matrix(rnorm(150), 30, 5)
+  y <- rnorm(30)
+  lambdas <- c(0.01, 0.1, 1, 10)
+  expect_equal(ridge(X, y, lambdas, 5, TRUE)$cv_mse, ridge(X, y, lambdas, 5, FALSE)$cv_mse, tolerance = 1e-6)
+})

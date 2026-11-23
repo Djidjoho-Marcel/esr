@@ -9,7 +9,6 @@ using namespace arma;
 //' @param lambdas Vecteur des lambdas a tester.
 //' @param k Nombre de plis.
 //' @return Un vecteur contenant le MSE moyen pour chaque lambda.
-//' @export
 // [[Rcpp::export]]
 arma::vec cv_ridge_cpp(const arma::mat& X, const arma::vec& y, const arma::vec& lambdas, int k) {
   int n = X.n_rows;
